@@ -20,7 +20,7 @@ docker push $docker_hub/$name:$version
 
 #Deployment
 
-sed -i "s/{{theversion}}/$VERSION/g" resources/deployment.yaml
+sed -i "s/{{theversion}}/$version/g" resources/deployment.yaml
 
 kubectl apply -f resources/deployment.yaml
 

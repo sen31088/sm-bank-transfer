@@ -144,7 +144,7 @@ def onetime_transfer():
         #print("In Transfer functuon username is: ", user_found)
         return render_template('index.html')
     else:
-        user_session = session.get('username')
+        user_session = session.get('name')
         act_page = 'transfer'
         #input_userdata = {'userid': user_session}
         #userdata_found = Userdata.get_data(input_userdata)
@@ -178,7 +178,7 @@ def add_beneficiary():
         #print("In Transfer functuon username is: ", user_found)
         return render_template('index.html')
     else:
-        user_session = session.get('username')
+        user_session = session.get('name')
         act_page = 'transfer'
         return render_template('add-beneficiary.html', logedin_user = user_session)
 
