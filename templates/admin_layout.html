@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>SMBank</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" >
+  <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'><link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="Home">
+    <h1></h1>
+    <div class="navbar">
+      <a href="/admin-home"  {% if active_page == 'adminhome' %} class="active" {% endif %}><img src="/static/home.png"> Admin Home</a>
+
+      <div class="dropdown">
+        <button {% if active_page == 'users' %} class="dropbtn active" {% else %} class="dropbtn1" {% endif %}><img src="/static/users-icon.png"> Users</a>
+          <i class="fa fa-caret-down icon1"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/pending-users">User Activation</a>
+          <a href="/user-details">User Details</a>
+          <a href="/add-user ">Add User</a>
+          <a href="/suspend-user">Suspend User</a>
+          <a href="/delete-user">Delete User</a>
+        </div>
+      </div> 
+
+      <div class="dropdown">
+        <button {% if active_page == 'transcation' %} class="dropbtn active" {% else %} class="dropbtn1" {% endif %}><img src="/static/recent-trans.png"> Transactions</a>
+          <i class="fa fa-caret-down icon1"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/admin-recent-transactions">Recent</a>
+          <a href="/admin-detailed-transactions">Detailed</a>
+        </div>
+      </div> 
+      <a href="/logout"><img src="/static/logout.png"> Logout ({{logedin_user}})</a>
+      </div>
+    
+    {% block y %}{% endblock %}
+    <div class="footer">SMbank Version 1.0</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+app.log
+user_activity.log
+__pycache__/
+controllers/__pycache__/
+models/__pycache__/
+utils/__pycache__
+flask_session/
+statements/
+sm-transfer

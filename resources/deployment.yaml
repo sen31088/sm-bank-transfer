@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sm-bank-transfer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sm-bank-transfer
+  template:
+    metadata:
+      labels:
+        app: sm-bank-transfer
+    spec:
+      containers:
+        - name: sm-bank-transfer
+          image: sen31088/sm-bank-transfer:{{theversion}}
+          envFrom:
+            - configMapRef:
+                name: sm-bank-config

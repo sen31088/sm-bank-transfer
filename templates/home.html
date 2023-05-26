@@ -1,0 +1,29 @@
+{% extends "user_layout.html" %}
+
+
+{% block y %}
+
+{% if session.name %}
+
+    <!-- <div class="row"> -->
+  <div class="side">
+   <!--  {% if username_session %} -->
+    <h3><b>Account Details of {{ username_session }}</b></h3>
+    <h4><b>Name:</b> {{ username }}</h4>
+    <h4><b>Email Id:</b> {{ emailid}}</h4>
+    <h4><b>Account Number:</b> {{ Accnumber }}</h4>
+    <h4><b>Account Balance:</b> SGD {{ Accbalance }}</h4>
+    <!-- {% endif %} -->
+ </div>
+
+<!-- partial -->
+  <script  src="/static/script.js"></script>
+
+ <!-- Welcome to Citibank {{ session.name }} <a href="/logout">logout</a>. -->
+ 
+{% else %}
+<meta http-equiv="refresh" content="2 ; url =/login" /> 
+	You are not Register. <a href="/login">login</a>.
+{% endif %}
+
+{% endblock %}

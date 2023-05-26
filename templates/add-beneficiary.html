@@ -1,0 +1,83 @@
+{% extends "user_layout.html" %}
+
+{% block y %}
+{% if session.name %}
+<style>
+  input[type=text], select {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 10%;
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .divback {
+    border-radius: 10px;
+    background-color: #f5f6f8;
+    padding: 20px;
+    margin: 10px;
+  }
+
+
+
+  </style>
+
+    <!-- <div class="row"> -->
+      <div>
+        {% if add_beneficiary_msg %}
+        <div align="center" class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>{{ add_beneficiary_msg }}</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+      <div class="divback">
+       <form action="{{ url_for('transfer.add_beneficiary') }}" method="post" >
+          <h2>Add Beneficiary</h2>
+          <br><input type="text" id="fname" name="accname" placeholder="Account Holder name">
+          <br><input type="text" id="lname" name="accno" placeholder="Account Number" onkeypress="return onlyNumberKey(event)">
+          <br><input type="submit" formaction="/api/v1/add-beneficiary" value="Add" onclick="openPopup()">
+        </form>
+        
+      </div> 
+      </div> 
+      
+<!-- partial -->
+  <script  src="/static/script.js"></script>
+
+ <!-- Welcome to Citibank {{ session.name }} <a href="/logout">logout</a>. -->
+ <script>
+  function onlyNumberKey(evt) {
+        
+      // Only ASCII character in that range allowed
+      var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+      if (ASCIICode > 31 && (ASCIICode < 45 || ASCIICode > 57))
+          return false;
+      return true;
+  }
+  if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+
+</script>
+{% else %}
+<meta http-equiv="refresh" content="2 ; url =/login" /> 
+	You are not Register. <a href="/login">login</a>.
+{% endif %}
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "user_layout.html" %}
+
+{% block y %}
+{% if session.name %}
+  </style>
+    
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="sucess">
+         <img src="/static/tick.png">
+         <h2>Thank you</h2>
+         <h4>Beneficiary Added Sucessfully<br>Name: {{accname}} <br>Acc Number:  {{accnumber}}</h4>
+         <button type="button" a href="/transfer" class="btn"  onclick="window.location.href='/transfer'">OK</button>
+        </div>
+    
+ 
+     </div> 
+<!-- partial -->
+  <script  src="/static/script.js"></script>
+  <script>
+    if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+    }
+    </script>
+{% else %}
+<meta http-equiv="refresh" content="2 ; url =/login" /> 
+	You are not Register. <a href="/login">login</a>.
+{% endif %}
+{% endblock %}

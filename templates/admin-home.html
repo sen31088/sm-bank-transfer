@@ -1,0 +1,29 @@
+{% extends "admin_layout.html" %}
+
+
+{% block y %}
+
+{% if session.name %}
+    
+    <!-- <div class="row"> -->
+  <div class="side">
+   <!--  {% if username_session %} -->
+    <h3><b>Welcome {{ username_session }}</b></h3>
+    <h4><b>Name:</b> {{ username }}</h4>
+    <h4><b>Total Users:</b> {{ totalusers }}</h4>
+    <h4><b>Total Pending Users:</b> {{ pendingusers }}</h4>
+    <h4><b>Total Suspended Users:</b> {{ suspendedusers }}</h4>
+    <!-- {% endif %} -->
+ </div>
+</div> 
+<!-- partial -->
+  <script  src="/static/script.js"></script>
+
+ <!-- Welcome to Citibank {{ session.name }} <a href="/logout">logout</a>. -->
+ 
+{% else %}
+<meta http-equiv="refresh" content="2 ; url =/login" /> 
+	You are not Register. <a href="/login">login</a>.
+{% endif %}
+
+{% endblock %}
