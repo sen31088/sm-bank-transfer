@@ -20,17 +20,17 @@
       {% endif %}
      <h1></h1>
      <div class="navbar">
-      <a  href="{{ app_url }}/home"  {% if active_page == 'home' %} class="active" {% endif %}><img src="/static/home.png"> Home</a>
+      <a  href="/home"  {% if active_page == 'home' %} class="active" {% endif %}><img src="/static/home.png"> Home</a>
 
       <div class="dropdown">
         <button {% if active_page == 'transfer' %} class="dropbtn active" {% else %} class="dropbtn1" {% endif %}><img src="/static/fund-trans.png"> Fund Transfer</a>
           <i class="fa fa-caret-down icon1"></i>
         </button>
         <div class="dropdown-content">
-          <a href="{{ app_url }}/transfer">Transfer</a>
-          <a href="{{ app_url }}/onetime-transfer">One Time Transfer</a>
-          <a href="{{ app_url }}/add-beneficiary">Add Benificary</a>
-          <a href="{{ app_url }}/delete-beneficiary">Delete Benificary</a>
+          <a href="/transfer">Transfer</a>
+          <a href="/onetime-transfer">One Time Transfer</a>
+          <a href="/add-beneficiary">Add Benificary</a>
+          <a href="/delete-beneficiary">Delete Benificary</a>
         </div>
       </div> 
 
@@ -39,13 +39,13 @@
           <i class="fa fa-caret-down icon1"></i>
         </button>
         <div class="dropdown-content">
-           <a href="{{ app_url }}/recent-transactions">Recent</a>
-          <a href="{{ app_url }}/detailed-transactions">Detailed</a>
+           <a href="/recent-transactions">Recent</a>
+          <a href="/detailed-transactions">Detailed</a>
         </div>
       </div> 
 
       <a href=/cards {% if active_page == 'cards' %} class="active" {% endif %}><img src="/static/cards.png"> cards</a>
-        <a href="{{ app_url }}/logout"><img src="/static/logout.png"> Logout ({{logedin_user}})</a>
+        <a href="/logout"><img src="/static/logout.png"> Logout ({{logedin_user}})</a>
     </div>
     
     {% block y %}{% endblock %}
